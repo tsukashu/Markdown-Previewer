@@ -28,6 +28,12 @@
   color: #61dafb;
 }
 
+.App-contents{
+  display: flex;
+  justify-content: center;
+  width: 80vmax;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -39,4 +45,9 @@
 
 button {
   font-size: calc(10px + 2vmin);
+}
+
+textarea{
+  width: 40vmin;
+  height: 60vmin;
 }
