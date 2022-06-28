@@ -17,14 +17,12 @@ const App = () => {
             name=''
             id='editor'
             value={text}
-            onChange={handleChange}
+            onChange={(event) => setText(event.target.value)}
           ></textarea>
         </div>
 
         <div>
-          <textarea name='' id='preview' value={text} readOnly>
-            {text}
-          </textarea>
+          <textarea name='' id='preview' value={text} readOnly></textarea>
         </div>
       </div>
     </div>
