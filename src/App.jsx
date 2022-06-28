@@ -1,36 +1,38 @@
 import { useState } from 'react';
 import './App.css';
 
-const Editor = () => {
-  return (
-    <div>
-      <textarea name='' id='editor' defaultValue={text}></textarea>
-    </div>
-  );
-};
+const App = () => {
+  const [text, setText] = useState(test);
 
-const Preview = (props) => {
-  return (
-    <div>
-      <textarea name='' id='preview' readOnly>
-        {props.text}
-      </textarea>
-    </div>
-  );
-};
+  const handleChange = (event) => {
+    setText(event.target.value);
+  };
 
-function App() {
   return (
     <div className='App App-header'>
-      <h2>Markdown Previewer</h2>
+      <h2>Markdown Previewer(Function)</h2>
       <div className='App-contents'>
-        <Editor />
-        <Preview />
+        <div>
+          <textarea
+            name=''
+            id='editor'
+            value={text}
+            onChange={handleChange}
+          ></textarea>
+        </div>
+
+        <div>
+          <textarea name='' id='preview' value={text} readOnly>
+            {text}
+          </textarea>
+        </div>
       </div>
     </div>
   );
-}
-const text = `
+};
+
+const test = `Editor Function`;
+const placeholder = `
   # Header 1
   ## Header 2
   [link](https://example.com)

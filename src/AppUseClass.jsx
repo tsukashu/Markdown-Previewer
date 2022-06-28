@@ -6,7 +6,7 @@ class AppUseClass extends Component {
     super(props);
 
     this.state = {
-      text: 'editor',
+      text: test,
     };
   }
 
@@ -17,7 +17,7 @@ class AppUseClass extends Component {
   render() {
     return (
       <div className='App App-header'>
-        <h2>Markdown Previewer</h2>
+        <h2>Markdown Previewer(Class)</h2>
         <div className='App-contents'>
           <div>
             <textarea
@@ -27,12 +27,14 @@ class AppUseClass extends Component {
               onChange={this.handleCHange}
             ></textarea>
           </div>
-          <textarea
-            name=''
-            id='preview'
-            value={this.state.text}
-            readOnly
-          ></textarea>
+          <div>
+            <textarea
+              name=''
+              id='preview'
+              value={this.state.text}
+              readOnly
+            ></textarea>
+          </div>
         </div>
       </div>
     );
@@ -41,7 +43,8 @@ class AppUseClass extends Component {
 
 export default AppUseClass;
 
-const text = `
+const test = `Editor Class`;
+const placeholder = `
   # Header 1
   ## Header 2
   [link](https://example.com)
