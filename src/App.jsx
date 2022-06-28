@@ -1,8 +1,11 @@
+import DOMPurify from 'dompurify';
+import { marked } from 'marked';
 import { useState } from 'react';
 import './App.css';
 
 const App = () => {
-  const [text, setText] = useState(test);
+  const [text, setText] = useState(placeholder);
+  const [md, setMd] = useState(ConvertMD(text));
 
   const handleChange = (event) => {
     setText(event.target.value);
@@ -22,11 +25,17 @@ const App = () => {
         </div>
 
         <div>
-          <textarea name='' id='preview' value={text} readOnly></textarea>
+          <div dangerouslySetInnerHTML={{ __html: ConvertMD(text) }} />
         </div>
       </div>
     </div>
   );
+};
+
+const ConvertMD = (raw) => {
+  const rawHtml = marked.parse(raw);
+  const Html = DOMPurify.sanitize(rawHtml);
+  return Html;
 };
 
 const test = `Editor Function`;
@@ -53,7 +62,7 @@ const placeholder = `
 
   > blockquote
 
-  // ![Alt text](https://example.com/img.jpg)
+  ![Alt text](https://example.com/img.jpg)
 
   *italic* (i.e. <em> tag in html)
   **bold** (same as <strong> tag)
