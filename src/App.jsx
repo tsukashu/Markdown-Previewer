@@ -4,6 +4,8 @@ import { useState } from 'react';
 import './App.css';
 import placeholder from './placeholder';
 
+
+
 // const test = `Editor Function`;
 
 const App = () => {
@@ -22,7 +24,6 @@ const App = () => {
     <div className='App'>
       <div className='App-container'>
         <h2>Markdown Previewer</h2>
-
         <div className='App-contents'>
           <div>
             <div>
@@ -32,6 +33,7 @@ const App = () => {
               id='editor'
               value={text}
               onChange={(event) => setText(event.target.value)}
+              autoFocus
             ></textarea>
           </div>
           <div>
