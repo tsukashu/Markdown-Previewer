@@ -5,29 +5,38 @@ import './App.css';
 
 const App = () => {
   const [text, setText] = useState(placeholder);
-  const [md, setMd] = useState(ConvertMD(placeholder));
+  const [md, setMd] = useState(ConvertMD(text));
 
   const handleChange = (event) => {
     setText(event.target.value);
   };
 
-  return (
-    <div className='App App-header'>
-      <h2>Markdown Previewer(Function)</h2>
-      <div className='App-contents'>
-        <div>
-          <textarea
-            id='editor'
-            value={text}
-            onChange={(event) => setText(event.target.value)}
-          ></textarea>
-        </div>
+  const handleClick = () => {
+    setText(placeholder);
+  };
 
-        <div>
-          <div
-            id='preview'
-            dangerouslySetInnerHTML={{ __html: ConvertMD(text) }}
-          />
+  return (
+    <div className='App'>
+      <div className='App-container'>
+        <h2>Markdown Previewer</h2>
+
+        <div className='App-contents'>
+          <div>
+            <div>
+              <button onClick={handleClick}>RESET</button>
+            </div>
+            <textarea
+              id='editor'
+              value={text}
+              onChange={(event) => setText(event.target.value)}
+            ></textarea>
+          </div>
+          <div>
+            <div
+              id='preview'
+              dangerouslySetInnerHTML={{ __html: ConvertMD(text) }}
+            />
+          </div>
         </div>
       </div>
     </div>
