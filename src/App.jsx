@@ -33,7 +33,7 @@ const App = () => {
               id='editor'
               value={text}
               onChange={(event) => setText(event.target.value)}
-              autoFocus
+              maxLength={10000}
             ></textarea>
           </div>
           <div>
