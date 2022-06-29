@@ -2,6 +2,9 @@ import DOMPurify from 'dompurify';
 import { marked } from 'marked';
 import { useState } from 'react';
 import './App.css';
+import placeholder from './placeholder';
+
+// const test = `Editor Function`;
 
 const App = () => {
   const [text, setText] = useState(placeholder);
@@ -57,37 +60,9 @@ const ConvertMD = (raw) => {
     sanitizer: DOMPurify.sanitize(),
   });
   return marked.parse(raw);
-  
-};;
+};
 
-const test = `Editor Function`;
-const placeholder = `
-  # Header 1
-  ## Header 2
-  [link](https://example.com)
-  \`inline code\`
 
-  \`\`\`  
-  codeblock
-  \`\`\`  
 
-  * un-ordered list
-  * fruits
-    * apple   
-    * banana
-    * strawberry
-  
-  1. ordered list
-  1. hello
-  1. world
-  1. !!
-
-  > blockquote
-
-  ![Alt text](https://example.com/img.jpg)
-
-  *italic* (i.e. <em> tag in html)
-  **bold** (same as <strong> tag)
-  `;
 
 export default App;
