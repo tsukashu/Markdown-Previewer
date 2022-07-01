@@ -1,18 +1,17 @@
 // import DOMPurify from 'dompurify';
 // import { marked } from 'marked';
 import { useState } from 'react';
-import './App.css';
+// import './App.css';
 import placeholder from './placeholder';
 
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkBreaks from 'remark-breaks';
 
-// const test = `Editor Function`;
+import Button from '@mui/material/Button';
 
 const App = () => {
   const [text, setText] = useState(placeholder);
-  // const [md, setMd] = useState(ConvertMD(text));
 
   const handleChange = (event) => {
     setText(event.target.value);
@@ -29,16 +28,30 @@ const App = () => {
 
         <div className='App-contents'>
           <div>
-            <div>
-              <button onClick={handleClick}>RESET</button>
-            </div>
             <textarea
               id='editor'
               value={text}
               onChange={(event) => setText(event.target.value)}
               maxLength={10000}
             ></textarea>
+            <div>
+              <Button
+                variant='contained'
+                size='small'
+                onClick={() => setText(placeholder)}
+              >
+                RESET
+              </Button>
+              <Button
+                variant='contained'
+                size='small'
+                onClick={() => setText('')}
+              >
+                CLEAR
+              </Button>
+            </div>
           </div>
+
           <div id='preview'>
             <ReactMarkdown
               children={text}
