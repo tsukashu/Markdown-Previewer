@@ -1,5 +1,3 @@
-// import DOMPurify from 'dompurify';
-// import { marked } from 'marked';
 import { useState } from 'react';
 // import './App.css';
 import placeholder from './placeholder';
@@ -17,17 +15,15 @@ const App = () => {
     setText(event.target.value);
   };
 
-  const handleClick = () => {
-    setText(placeholder);
-  };
-
   return (
     <div className='App'>
       <div className='App-container'>
         <h2>Markdown Previewer</h2>
-
+        <div>
+          <button onClick={() => setText(placeholder)}>RESET</button>
+        </div>
         <div className='App-contents'>
-          <div>
+          <div className='resizable'>
             <textarea
               id='editor'
               value={text}
@@ -52,17 +48,18 @@ const App = () => {
             </div>
           </div>
 
-          <div id='preview'>
-            <ReactMarkdown
-              children={text}
-              remarkPlugins={[remarkGfm, remarkBreaks]}
-            />
+          <div className='resizable'>
+            <div id='preview'>
+              <ReactMarkdown
+                children={text}
+                remarkPlugins={[remarkGfm, remarkBreaks]}
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
 };
-
 
 export default App;
