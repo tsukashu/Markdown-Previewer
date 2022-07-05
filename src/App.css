@@ -1,12 +1,9 @@
+:root{
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 
 .App-container {
   background-color: #282c34;
@@ -18,19 +15,27 @@
   color: whitesmoke;
 }
 
-
-.App-contents{
+.App-contents {
+  background-color: #fff;
+  width: 80vmin;
   display: flex;
-  justify-content: center;
-  width: 80vmax;
+  flex-direction: column;
 }
 
+
+
+.resizable {
+  display: flex;
+
+
+}
+
+textarea {
+  resize: vertical;
+  border: 0;
+  min-height: 30vh
+}
 
 button {
   font-size: calc(10px + 2vmin);
-}
-
-textarea{
-  width: 40vmin;
-  height: 60vmin;
 }
