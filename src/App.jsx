@@ -1,12 +1,12 @@
 import { useState } from 'react';
-// import './App.css';
+import './App.css';
 import placeholder from './placeholder';
 
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkBreaks from 'remark-breaks';
 
-import Button from '@mui/material/Button';
+import { Button, TextField } from '@mui/material/';
 
 const App = () => {
   const [text, setText] = useState(placeholder);
@@ -18,43 +18,37 @@ const App = () => {
   return (
     <div className='App'>
       <div className='App-container'>
-        <h2>Markdown Previewer</h2>
-        <div>
-          <button onClick={() => setText(placeholder)}>RESET</button>
+        <div className='App-title'>
+          <h2>Markdown Previewer</h2>
+        </div>
+        <div className='buttons'>
+          <Button
+            variant='contained'
+            size='small'
+            onClick={() => setText(placeholder)}
+          >
+            RESET
+          </Button>
+          <Button variant='contained' size='small' onClick={() => setText('')}>
+            CLEAR
+          </Button>
         </div>
         <div className='App-contents'>
-          <div className='resizable'>
-            <textarea
+          <div className='resizable markdown'>
+            <TextField
+              multiline
+              fullWidth
               id='editor'
               value={text}
               onChange={(event) => setText(event.target.value)}
               maxLength={10000}
-            ></textarea>
-            <div>
-              <Button
-                variant='contained'
-                size='small'
-                onClick={() => setText(placeholder)}
-              >
-                RESET
-              </Button>
-              <Button
-                variant='contained'
-                size='small'
-                onClick={() => setText('')}
-              >
-                CLEAR
-              </Button>
-            </div>
+            ></TextField>
           </div>
-
-          <div className='resizable'>
-            <div id='preview'>
-              <ReactMarkdown
-                children={text}
-                remarkPlugins={[remarkGfm, remarkBreaks]}
-              />
-            </div>
+          <div className='resizable markdown' id='preview'>
+            <ReactMarkdown
+              children={text}
+              remarkPlugins={[remarkGfm, remarkBreaks]}
+            />
           </div>
         </div>
       </div>
