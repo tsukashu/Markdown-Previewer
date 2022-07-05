@@ -38,6 +38,7 @@ const App = () => {
             <TextField
               multiline
               fullWidth
+              sx={{ backgroundColor: 'whitesmoke' }}
               id='editor'
               value={text}
               onChange={(event) => setText(event.target.value)}

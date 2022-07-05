@@ -1,5 +1,6 @@
 /* TODO
 0. Improve UX to edit and preview markdown(!!)
+0. Clear button expect to reset to min-height
 1. Responsive design
 3. Change Layout (Editor or Preview only, and both)
 2. Select Theme
@@ -40,15 +41,16 @@
 .markdown {
   min-height: 30vh;
   max-width: 80vh;
-  min-width: 30vw;
-  max-width: 80vw;
+  /* min-width: 30vw; */
+  /* max-width: 80vw; */
+  width: 80vmin;
 }
 
-#preview {
+#editor,#preview {
   color: #333;
   background-color: whitesmoke;
+  border: 0;
+  min-height: 30vh;
 }
 
-textarea {
-  border: 0;
-}
+
