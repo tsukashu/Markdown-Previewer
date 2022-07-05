@@ -1,12 +1,23 @@
+/* TODO
+0. Improve UX to edit and preview markdown(!!)
+1. Responsive design
+3. Change Layout (Editor or Preview only, and both)
+2. Select Theme
+*/
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App-title {
+  /* preserved */
+  color: inherit;
 }
 
+.buttons {
+  /* preserved */
+  color: inherit;
+}
 
 .App-container {
   background-color: #282c34;
@@ -16,21 +27,30 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: whitesmoke;
+  width: 100%;
+  height: auto;
 }
 
-
-.App-contents{
+.App-contents {
+  background-color: #fff;
   display: flex;
-  justify-content: center;
-  width: 80vmax;
+  flex-direction: column;
+}
+
+.markdown {
+  min-height: 30vh;
+  max-width: 80vh;
+  min-width: 30vw;
+  max-width: 80vw;
+}
+
+#preview {
+  color: #333;
+  background-color: whitesmoke;
+}
+
+textarea {
+  border: 0;
 }
 
 
-button {
-  font-size: calc(10px + 2vmin);
-}
-
-textarea{
-  width: 40vmin;
-  height: 60vmin;
-}
