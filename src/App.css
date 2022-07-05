@@ -1,8 +1,22 @@
-:root{
-  box-sizing: border-box;
-}
+/* TODO
+0. Improve UX to edit and preview markdown(!!)
+1. Responsive design
+3. Change Layout (Editor or Preview only, and both)
+2. Select Theme
+*/
+
 .App {
   text-align: center;
+}
+
+.App-title {
+  /* preserved */
+  color: inherit;
+}
+
+.buttons {
+  /* preserved */
+  color: inherit;
 }
 
 .App-container {
@@ -13,29 +27,28 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: whitesmoke;
+  width: 100%;
+  height: auto;
 }
 
 .App-contents {
   background-color: #fff;
-  width: 80vmin;
   display: flex;
   flex-direction: column;
 }
 
+.markdown {
+  min-height: 30vh;
+  max-width: 80vh;
+  min-width: 30vw;
+  max-width: 80vw;
+}
 
-
-.resizable {
-  display: flex;
-
-
+#preview {
+  color: #333;
+  background-color: whitesmoke;
 }
 
 textarea {
-  resize: vertical;
   border: 0;
-  min-height: 30vh
-}
-
-button {
-  font-size: calc(10px + 2vmin);
 }
